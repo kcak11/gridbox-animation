@@ -1,7 +1,22 @@
 body {
 	font-family: Tahoma;
 	background-color: rgb(90, 160, 212);
+	-webkit-transition: background-color 4s;
+	transition: background-color 4s;
 }
+
+body.bg1 {
+	background-color: rgb(44, 130, 193);
+}
+
+body.bg1.bg2 {
+	background-color: rgb(23, 145, 234);
+}
+
+body.bg1.bg2.bg3 {
+	background-color: rgb(5, 76, 128);
+}
+
 .gridBoxContainer {
 	width: 522px;
 	height: 522px;
@@ -12,6 +27,7 @@ body {
 	margin-top: -261px;
 	margin-left: -261px;
 }
+
 .tile {
 	background-image: url("../assets/images/the-k-circle.png");
 	background-repeat: no-repeat;
@@ -27,6 +43,7 @@ body {
 	-webkit-transition: opacity 1s, -webkit-transform 1s;
 	transition: opacity 1s, transform 1s;
 }
+
 .tile.visible {
 	-webkit-transform: rotateY(360deg);
 	transform: rotateY(360deg);
