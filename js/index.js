@@ -1,11 +1,11 @@
 (function() {
-	var _r = [], 
-	_ctr = 0, 
-	effects = [ "", "bg1", "bg1 bg2", "bg1 bg2 bg3", "bg1 bg2", "bg1" ], 
-	effectsCtr = 0, 
-	tileElem, 
-	gridBoxContainer = document.querySelector(".gridBoxContainer"), 
-	preloadedImage = document.querySelector("#preloadedImage"), 
+	var _r = [],
+	_ctr = 0,
+	effects = [ "bg1", "bg1 bg2", "bg1 bg2 bg3", "bg1 bg2", "bg1", "" ], 
+	effectsCtr = 0,
+	tileElem,
+	gridBoxContainer = document.querySelector(".gridBoxContainer"),
+	preloadedImage = document.querySelector("#preloadedImage"),
 	frag = document.createDocumentFragment();
 	for (var y = 0; y < 522; y += 29) {
 		for (var x = 0; x < 522; x += 29) {
