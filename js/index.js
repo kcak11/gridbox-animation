@@ -5,8 +5,8 @@
 		gridBoxContainer = document.querySelector(".gridBoxContainer"),
 		preloadedImage = document.querySelector("#preloadedImage"),
 		frag = document.createDocumentFragment();
-	for (var y = 0; y < 400; y += 50) {
-		for (var x = 0; x < 400; x += 50) {
+	for (var y = 0; y < 522; y += 29) {
+		for (var x = 0; x < 522; x += 29) {
 			tileElem = document.createElement("div");
 			tileElem.classList.add("tile");
 			tileElem.style.top = y + "px";
@@ -33,10 +33,10 @@
 					if (idx === len - 1) {
 						setTimeout(function() {
 							play();
-						}, 605);
+						}, 968);
 					}
 				}, i);
-			})(allTiles[_r[i]], allTiles.length, i, i * 25);
+			})(allTiles[_r[i]], allTiles.length, i, i * 10);
 		}
 	}
 	var init = function() {

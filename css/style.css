@@ -3,20 +3,20 @@ body {
 	background-color: rgb(90, 160, 212);
 }
 .gridBoxContainer {
-	width: 400px;
-	height: 400px;
+	width: 522px;
+	height: 522px;
 	overflow: hidden;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin-top: -200px;
-	margin-left: -200px;
+	margin-top: -261px;
+	margin-left: -261px;
 }
 .tile {
-	background-image: url("../assets/images/k-400x400.png");
+	background-image: url("../assets/images/the-k-circle.png");
 	background-repeat: no-repeat;
-	width: 50px;
-	height: 50px;
+	width: 29px;
+	height: 29px;
 	padding: 0px;
 	margin: 0px;
 	position: absolute;
