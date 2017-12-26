@@ -57,6 +57,7 @@ body.bg1.bg2.bg3 {
     margin-left: -300px;
     border-top: 11px solid #fff;
     border-radius: 50%;
+    box-shadow: 0px 0px 22px #fff;
 }
 
 .gridBoxContainer {
