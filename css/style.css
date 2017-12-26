@@ -1,59 +1,101 @@
 body {
-	font-family: Tahoma;
-	background-color: rgb(90, 160, 212);
-	-webkit-transition: background-color 4s;
-	transition: background-color 4s;
+    font-family: Tahoma;
+    background-color: rgb(90, 160, 212);
+    -webkit-transition: background-color 4s;
+    transition: background-color 4s;
+    overflow: hidden;
 }
 
 body.bg1 {
-	background-color: rgb(44, 130, 193);
+    background-color: rgb(44, 130, 193);
 }
 
 body.bg1.bg2 {
-	background-color: rgb(23, 145, 234);
+    background-color: rgb(23, 145, 234);
 }
 
 body.bg1.bg2.bg3 {
-	background-color: rgb(5, 76, 128);
+    background-color: rgb(5, 76, 128);
+}
+
+.rotateMe {
+    -webkit-animation: gboxspin 2s infinite linear;
+    animation: gboxspin 2s infinite linear;
+}
+
+@-webkit-keyframes gboxspin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes gboxspin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+.gridBoxSpinner {
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -300px;
+    border-top: 11px solid #fff;
+    border-radius: 50%;
 }
 
 .gridBoxContainer {
-	width: 522px;
-	height: 522px;
-	overflow: hidden;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -261px;
-	margin-left: -261px;
-	-webkit-transform: rotateY(0deg);
-	transform: rotateY(0deg);
-	-webkit-transition: -webkit-transform 1s;
-	transition: transform 1s;
+    width: 522px;
+    height: 522px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -261px;
+    margin-left: -261px;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    -webkit-transition: -webkit-transform 1s;
+    transition: transform 1s;
 }
 
 .gridBoxContainer.animate {
-	-webkit-transform: rotateY(-360deg);
-	transform: rotateY(-360deg);
+    -webkit-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
 }
 
 .tile {
-	background-repeat: no-repeat;
-	width: 29px;
-	height: 29px;
-	padding: 0px;
-	margin: 0px;
-	position: absolute;
-	-webkit-transform: rotateY(270deg);
-	transform: rotateY(270deg);
-	opacity: 0;
-	filter: alpha(opacity = 0);
-	-webkit-transition: opacity 1s, -webkit-transform 1s;
-	transition: opacity 1s, transform 1s;
+    background-repeat: no-repeat;
+    width: 29px;
+    height: 29px;
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    -webkit-transform: rotateY(270deg);
+    transform: rotateY(270deg);
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    -webkit-transition: opacity 1s, -webkit-transform 1s;
+    transition: opacity 1s, transform 1s;
 }
 
 .tile.visible {
-	-webkit-transform: rotateY(360deg);
-	transform: rotateY(360deg);
-	opacity: 1;
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+    opacity: 1;
 }
