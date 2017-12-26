@@ -38,7 +38,6 @@ body.bg1.bg2.bg3 {
 }
 
 .tile {
-	background-image: url("../assets/images/the-k-circle.png");
 	background-repeat: no-repeat;
 	width: 29px;
 	height: 29px;

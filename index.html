@@ -7,7 +7,28 @@
 </head>
 <body>
 	<div class="gridBoxContainer"></div>
-	<img id="preloadedImage" src="assets/images/the-k-circle.png" style="display: none;" />
+	<script type="text/javascript">
+		var cssText = "";
+		if (window.location.protocol.indexOf("http") !== -1) {
+			document.open();
+			document.write("<img id=\"preloadedImage\" src=\"//cdn.kcak11.com/gridbox-animation/assets/images/the-k-circle.png\" style=\"display: none;\" />");
+			document.close();
+			cssText = "\n.tile{background-image:url(\"//cdn.kcak11.com/gridbox-animation/assets/images/the-k-circle.png\");}"
+		} else {
+			document.open();
+			document.write("<img id=\"preloadedImage\" src=\"assets/images/the-k-circle.png\" style=\"display: none;\" />");
+			document.close();
+			cssText = "\n.tile{background-image:url(\"assets/images/the-k-circle.png\");}"
+		}
+		var dynamicStyle = document.createElement("style");
+		dynamicStyle.type = "text/css";
+		if (dynamicStyle.styleSheet) {
+			dynamicStyle.styleSheet.cssText = cssText;
+		} else {
+			dynamicStyle.appendChild(document.createTextNode(cssText));
+		}
+		document.getElementsByTagName("head")[0].appendChild(dynamicStyle);
+	</script>
 	<script src="js/index.js"></script>
 </body>
 </html>
