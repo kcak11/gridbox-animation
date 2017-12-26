@@ -19,8 +19,8 @@ body.bg1.bg2.bg3 {
 }
 
 .rotateMe {
-    -webkit-animation: gboxspin 2s infinite linear;
-    animation: gboxspin 2s infinite linear;
+    -webkit-animation: gboxspin 7s infinite linear;
+    animation: gboxspin 7s infinite linear;
 }
 
 @-webkit-keyframes gboxspin {
