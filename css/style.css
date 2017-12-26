@@ -26,6 +26,15 @@ body.bg1.bg2.bg3 {
 	left: 50%;
 	margin-top: -261px;
 	margin-left: -261px;
+	-webkit-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+	-webkit-transition: -webkit-transform 1s;
+	transition: transform 1s;
+}
+
+.gridBoxContainer.animate {
+	-webkit-transform: rotateY(-360deg);
+	transform: rotateY(-360deg);
 }
 
 .tile {
