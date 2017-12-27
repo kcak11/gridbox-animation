@@ -1,4 +1,3 @@
-# gridbox-animation
-GridBox Animation
+# GridBox-Animation
 
-View Live Animation here: https://cdn.kcak11.com/gridbox-animation
+View Live Animation here: https://kcak11.com/-/gridbox-animation
