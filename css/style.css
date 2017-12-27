@@ -62,6 +62,34 @@ body.bg1.bg2.bg3 {
     margin-left: -300px;
 }
 
+.gridBoxSpinner:before {
+    content: " ";
+    width: 600px;
+    height: 600px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    box-shadow: 0px 0px 121px #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -300px;
+}
+
+.gridBoxSpinner:after {
+    content: " ";
+    width: 600px;
+    height: 600px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    box-shadow: 0px 0px 121px #fff inset;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -300px;
+}
+
 .gridBoxContainer {
     width: 522px;
     height: 522px;
