@@ -57,4 +57,10 @@
 		}
 	};
 	init();
+	document.oncontextmenu = function(e){
+		if(e && e.preventDefault){
+			e.preventDefault();
+		}
+		return false;
+	}
 })();
