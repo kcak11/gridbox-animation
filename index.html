@@ -9,16 +9,15 @@
 	<div class="gridBoxContainer"></div>
 	<div class="gridBoxSpinner rotateMe"></div>
 	<script type="text/javascript">
+		var pImage = document.createElement("img");
+		pImage.style.display = "none";
+		pImage.setAttribute("id", "preloadedImage");
 		var cssText = "";
 		if (window.location.protocol.indexOf("http") !== -1) {
-			document.open();
-			document.write("<img id=\"preloadedImage\" src=\"//cdn.kcak11.com/gridbox-animation/assets/images/the-k-circle.png\" style=\"display: none;\" />");
-			document.close();
+			pImage.src = "//cdn.kcak11.com/gridbox-animation/assets/images/the-k-circle.png";
 			cssText = "\n.tile{background-image:url(\"//cdn.kcak11.com/gridbox-animation/assets/images/the-k-circle.png\");}"
 		} else {
-			document.open();
-			document.write("<img id=\"preloadedImage\" src=\"assets/images/the-k-circle.png\" style=\"display: none;\" />");
-			document.close();
+			pImage.src = "assets/images/the-k-circle.png";
 			cssText = "\n.tile{background-image:url(\"assets/images/the-k-circle.png\");}"
 		}
 		var dynamicStyle = document.createElement("style");
@@ -29,6 +28,7 @@
 			dynamicStyle.appendChild(document.createTextNode(cssText));
 		}
 		document.getElementsByTagName("head")[0].appendChild(dynamicStyle);
+		document.getElementsByTagName("body")[0].appendChild(pImage);
 	</script>
 	<script src="js/index.js"></script>
 </body>
