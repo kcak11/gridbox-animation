@@ -5,6 +5,7 @@
 	effectsCtr = 0, 
 	tileElem, 
 	gridBoxContainer = document.querySelector(".gridBoxContainer"), 
+	gridBoxSpinner = document.querySelector(".gridBoxSpinner"), 
 	preloadedImage = document.querySelector("#preloadedImage"), 
 	frag = document.createDocumentFragment();
 	for (var y = 0; y < 522; y += 29) {
@@ -41,11 +42,12 @@
 						}, 605);
 					}
 				}, i);
-			})(allTiles[_r[i]], allTiles.length, i, i * 10);
+			})(allTiles[_r[i]], allTiles.length, i, i * 22);
 		}
 	}
 	var init = function() {
 		if (window.location.protocol.indexOf("http") === -1 || preloadedImage.complete) {
+			gridBoxSpinner.classList.add("rotateMe");
 			play();
 		} else {
 			setTimeout(function() {
