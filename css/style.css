@@ -50,29 +50,32 @@ body.bg1.bg2.bg3 {
 .gridBoxSpinner {
     width: 600px;
     height: 600px;
+    box-sizing: border-box;
+    border-top: 11px solid #fff;
+    border-bottom: 11px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 121px #fff;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-top: -300px;
     margin-left: -300px;
-    border-top: 11px solid #fff;
-    border-radius: 50%;
-    box-shadow: 0px 0px 22px #fff;
 }
 
 .gridBoxContainer {
     width: 522px;
     height: 522px;
+    box-sizing: border-box;
     overflow: hidden;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    -webkit-transition: -webkit-transform 1s;
+    transition: transform 1s;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-top: -261px;
     margin-left: -261px;
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    -webkit-transition: -webkit-transform 1s;
-    transition: transform 1s;
 }
 
 .gridBoxContainer.animate {
