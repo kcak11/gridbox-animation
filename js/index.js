@@ -5,7 +5,7 @@
 	effectsCtr = 0, 
 	tileElem, 
 	gridBoxContainer = document.querySelector(".gridBoxContainer"), 
-	gridBoxSpinner = document.querySelector(".gridBoxSpinner"), 
+	gridBoxSpinner = document.querySelector("._gboxS"), 
 	preloadedImage = document.querySelector("#preloadedImage"), 
 	frag = document.createDocumentFragment();
 	for (var y = 0; y < 522; y += 29) {
@@ -47,6 +47,7 @@
 	}
 	var init = function() {
 		if (window.location.protocol.indexOf("http") === -1 || preloadedImage.complete) {
+			gridBoxSpinner.classList.add("gridBoxSpinner");
 			gridBoxSpinner.classList.add("rotateMe");
 			play();
 		} else {
