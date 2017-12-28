@@ -1,26 +1,29 @@
 (function() {
-	var _r = [], 
-	_ctr = 0, 
-	effects = [ "bg1", "bg1 bg2", "bg1 bg2 bg3", "bg1 bg2", "bg1", "" ], 
-	effectsCtr = 0, 
-	tileElem, 
-	gridBoxContainer = document.querySelector(".gridBoxContainer"), 
-	gridBoxSpinner = document.querySelector("._gboxS"), 
-	preloadedImage = document.querySelector("#preloadedImage"), 
+	var _r = [],
+	_ctr = 0,
+	effects = [ "bg1", "bg1 bg2", "bg1 bg2 bg3", "bg1 bg2", "bg1", "" ],
+	effectsCtr = 0,
+	tileElem,
+	gridBoxContainer = document.querySelector(".gridBoxContainer"),
+	gridBoxSpinner = document.querySelector("._gboxS"),
+	preloadedImage = document.querySelector("#preloadedImage"),
 	frag = document.createDocumentFragment();
-	for (var y = 0; y < 522; y += 29) {
-		for (var x = 0; x < 522; x += 29) {
-			tileElem = document.createElement("div");
-			tileElem.classList.add("tile");
-			tileElem.style.top = y + "px";
-			tileElem.style.left = x + "px";
-			tileElem.style.backgroundPosition = "-" + x + "px -" + y + "px";
-			frag.appendChild(tileElem);
-			_r.push(_ctr);
-			_ctr++;
+	function createLayout(){
+		for (var y = 0; y < 522; y += 29) {
+			for (var x = 0; x < 522; x += 29) {
+				tileElem = document.createElement("div");
+				tileElem.classList.add("tile");
+				tileElem.style.top = y + "px";
+				tileElem.style.left = x + "px";
+				tileElem.style.backgroundPosition = "-" + x + "px -" + y + "px";
+				frag.appendChild(tileElem);
+				_r.push(_ctr);
+				_ctr++;
+			}
 		}
+		gridBoxContainer.innerHTML="";
+		gridBoxContainer.appendChild(frag);
 	}
-	gridBoxContainer.appendChild(frag);
 
 	function play() {
 		var allTiles = document.querySelectorAll(".tile");
@@ -49,6 +52,7 @@
 		if (window.location.protocol.indexOf("http") === -1 || preloadedImage.complete) {
 			gridBoxSpinner.classList.add("gridBoxSpinner");
 			gridBoxSpinner.classList.add("rotateMe");
+			createLayout();
 			play();
 		} else {
 			setTimeout(function() {

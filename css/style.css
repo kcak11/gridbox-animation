@@ -48,6 +48,7 @@ body.bg1.bg2.bg3 {
 }
 
 .gridBoxSpinner {
+    background-color: transparent;
     width: 600px;
     height: 600px;
     box-sizing: border-box;
@@ -91,6 +92,9 @@ body.bg1.bg2.bg3 {
 }
 
 .gridBoxContainer {
+    text-align: center;
+    line-height: 522px;
+    color: #fff;
     width: 522px;
     height: 522px;
     box-sizing: border-box;
