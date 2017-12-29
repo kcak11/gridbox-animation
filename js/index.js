@@ -1,5 +1,52 @@
 (function() {
-	var _r = [], _ctr = 0, effects = [ "bg1", "bg1 bg2", "bg1 bg2 bg3", "bg1 bg2", "bg1", "" ], effectsCtr = 0, tileElem, gridBoxContainer = document.querySelector(".gridBoxContainer"), gridBoxSpinner = document.querySelector("._gboxS"), preloadedImage = document.querySelector("#preloadedImage"), frag = document.createDocumentFragment(), cFrag = document.createDocumentFragment(), animCtr = 0;
+
+	var pImage = document.createElement("img");
+	pImage.style.display = "none";
+	pImage.setAttribute("id", "preloadedImage");
+
+	var pImageI = document.createElement("img");
+	pImageI.style.display = "none";
+	pImageI.setAttribute("id", "preloadedImageI");
+
+	var cssText = "", cssTextI = "";
+	if (window.location.protocol.indexOf("http") !== -1) {
+		pImage.src = "//cdn.kcak11.com/gridbox-animation/assets/images/the-k-circle.png";
+		pImageI.src = "//cdn.kcak11.com/gridbox-animation/assets/images/the-k-circle-i.png";
+		cssText = "\n.tile{background-image:url(\"//cdn.kcak11.com/gridbox-animation/assets/images/the-k-circle.png\");}"
+		cssTextI = "\n.tile{background-image:url(\"//cdn.kcak11.com/gridbox-animation/assets/images/the-k-circle-i.png\");}";
+	} else {
+		pImage.src = "assets/images/the-k-circle.png";
+		pImageI.src = "assets/images/the-k-circle-i.png";
+		cssText = "\n.tile{background-image:url(\"assets/images/the-k-circle.png\");}";
+		cssTextI = "\n.tile{background-image:url(\"assets/images/the-k-circle-i.png\");}";
+	}
+	function applyCSSRule(cssText) {
+		var existingStyleElem = document.querySelector("#_dyn_StyleGBOX");
+		existingStyleElem && existingStyleElem.parentNode.removeChild(existingStyleElem);
+		var dynamicStyle = document.createElement("style");
+		dynamicStyle.id = "_dyn_StyleGBOX";
+		dynamicStyle.type = "text/css";
+		if (dynamicStyle.styleSheet) {
+			dynamicStyle.styleSheet.cssText = cssText;
+		} else {
+			dynamicStyle.appendChild(document.createTextNode(cssText));
+		}
+		document.getElementsByTagName("head")[0].appendChild(dynamicStyle);
+	}
+	applyCSSRule(cssText);
+	document.querySelector("body").appendChild(pImage);
+	document.querySelector("body").appendChild(pImageI);
+
+	var _r = [], 
+	_ctr = 0, 
+	effects = [ "bg1", "bg1 bg2", "bg1 bg2 bg3", "bg1 bg2", "bg1", "" ], 
+	effectsCtr = 0, 
+	tileElem, 
+	gridBoxContainer = document.querySelector(".gridBoxContainer"), 
+	gridBoxSpinner = document.querySelector("._gboxS"), 
+	frag = document.createDocumentFragment(), 
+	cFrag = document.createDocumentFragment(), 
+	animCtr = 0;
 
 	cFrag.appendChild(document.querySelector("#css_i"));
 	function createLayout() {
@@ -63,7 +110,7 @@
 		animCtr++;
 	}
 	var init = function() {
-		if (window.location.protocol.indexOf("http") === -1 || preloadedImage.complete) {
+		if (window.location.protocol.indexOf("http") === -1 || (pImage.complete && pImageI.complete)) {
 			gridBoxSpinner.classList.add("gridBoxSpinner");
 			gridBoxSpinner.classList.add("rotateMe");
 			createLayout();

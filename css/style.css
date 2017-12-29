@@ -36,8 +36,6 @@ body {
 }
 
 .gridBoxContainer {
-    text-align: center;
-    line-height: 522px;
     color: #fff;
     width: 522px;
     height: 522px;
@@ -57,6 +55,16 @@ body {
 .gridBoxContainer.animate {
     -webkit-transform: rotateY(-1080deg);
     transform: rotateY(-1080deg);
+}
+
+.gridBoxContainer .load_msg {
+    width: 196px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -98px;
 }
 
 .tile {
