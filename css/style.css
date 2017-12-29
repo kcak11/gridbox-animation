@@ -111,8 +111,8 @@ body.bg1.bg2.bg3 {
 }
 
 .gridBoxContainer.animate {
-    -webkit-transform: rotateY(-360deg);
-    transform: rotateY(-360deg);
+    -webkit-transform: rotateY(-1080deg);
+    transform: rotateY(-1080deg);
 }
 
 .tile {
