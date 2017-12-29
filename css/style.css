@@ -1,22 +1,9 @@
 /*--eTag:d6d6nd9w2jlkrq9run8v6--*/
 body {
     font-family: Tahoma;
-    background-color: rgb(90, 160, 212);
-    -webkit-transition: background-color 4s;
-    transition: background-color 4s;
+    -webkit-transition: background-color 2s;
+    transition: background-color 2s;
     overflow: hidden;
-}
-
-body.bg1 {
-    background-color: rgb(44, 130, 193);
-}
-
-body.bg1.bg2 {
-    background-color: rgb(23, 145, 234);
-}
-
-body.bg1.bg2.bg3 {
-    background-color: rgb(5, 76, 128);
 }
 
 .rotateMe {
@@ -46,50 +33,6 @@ body.bg1.bg2.bg3 {
         -webkit-transform: rotate(359deg);
         transform: rotate(359deg);
     }
-}
-
-.gridBoxSpinner {
-    background-color: transparent;
-    width: 600px;
-    height: 600px;
-    box-sizing: border-box;
-    border-top: 11px solid #fff;
-    border-bottom: 11px solid #fff;
-    border-radius: 50%;
-    box-shadow: 0px 0px 121px #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -300px;
-    margin-left: -300px;
-}
-
-.gridBoxSpinner:before {
-    content: " ";
-    width: 600px;
-    height: 600px;
-    box-sizing: border-box;
-    border-radius: 50%;
-    box-shadow: 0px 0px 121px #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -300px;
-    margin-left: -300px;
-}
-
-.gridBoxSpinner:after {
-    content: " ";
-    width: 600px;
-    height: 600px;
-    box-sizing: border-box;
-    border-radius: 50%;
-    box-shadow: 0px 0px 121px #fff inset;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -300px;
-    margin-left: -300px;
 }
 
 .gridBoxContainer {

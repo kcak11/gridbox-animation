@@ -6,6 +6,176 @@
 <meta charset="UTF-8">
 <title>GridBox Animation</title>
 <link rel="stylesheet" href="css/style.css">
+<style type="text/css" id="css_default">
+body {
+	background-color: rgb(90, 160, 212);
+}
+
+body.bg1 {
+	background-color: rgb(44, 130, 193);
+}
+
+body.bg1.bg2 {
+	background-color: rgb(23, 145, 234);
+}
+
+body.bg1.bg2.bg3 {
+	background-color: rgb(5, 76, 128);
+}
+
+body.inTransition{
+	background-color: rgb(165, 95, 43);
+}
+
+.gridBoxSpinner {
+	background-color: transparent;
+	width: 600px;
+	height: 600px;
+	box-sizing: border-box;
+	border-top: 11px solid #fff;
+	border-bottom: 11px solid #fff;
+	border-radius: 50%;
+	box-shadow: 0px 0px 121px #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -300px;
+	margin-left: -300px;
+	-webkit-transition: border-top 1s, border-bottom 1s, box-shadow 1s;
+	transition: border-top 1s, border-bottom 1s, box-shadow 1s;
+}
+
+.inTransition .gridBoxSpinner{
+	border-top: 11px solid #000;
+	border-bottom: 11px solid #000;
+	box-shadow: 0px 0px 121px #000;
+}
+
+.gridBoxSpinner:before {
+	content: " ";
+	width: 600px;
+	height: 600px;
+	box-sizing: border-box;
+	border-radius: 50%;
+	box-shadow: 0px 0px 121px #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -300px;
+	margin-left: -300px;
+	-webkit-transition: box-shadow 1s;
+	transition: box-shadow 1s;
+}
+
+.inTransition .gridBoxSpinner:before{
+	box-shadow: 0px 0px 121px #000;
+}
+
+.gridBoxSpinner:after {
+	content: " ";
+	width: 600px;
+	height: 600px;
+	box-sizing: border-box;
+	border-radius: 50%;
+	box-shadow: 0px 0px 121px #fff inset;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -300px;
+	margin-left: -300px;
+	-webkit-transition: box-shadow 1s;
+	transition: box-shadow 1s;
+}
+
+.inTransition .gridBoxSpinner:after{
+	box-shadow: 0px 0px 121px #000 inset;
+}
+</style>
+<style type="text/css" id="css_i">
+body {
+	background-color: rgb(165, 95, 43);
+}
+
+body.bg1 {
+	background-color: rgb(211, 125, 62);
+}
+
+body.bg1.bg2 {
+	background-color: rgb(232, 110, 21);
+}
+
+body.bg1.bg2.bg3 {
+	background-color: rgb(250, 179, 127);
+}
+
+body.inTransition {
+	background-color: rgb(90, 160, 212);
+}
+
+.gridBoxSpinner {
+	background-color: transparent;
+	width: 600px;
+	height: 600px;
+	box-sizing: border-box;
+	border-top: 11px solid #000;
+	border-bottom: 11px solid #000;
+	border-radius: 50%;
+	box-shadow: 0px 0px 121px #000;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -300px;
+	margin-left: -300px;
+	-webkit-transition: border-top 1s, border-bottom 1s, box-shadow 1s;
+	transition: border-top 1s, border-bottom 1s, box-shadow 1s;
+}
+
+.inTransition .gridBoxSpinner{
+	border-top: 11px solid #fff;
+	border-bottom: 11px solid #fff;
+	box-shadow: 0px 0px 121px #fff;
+}
+
+.gridBoxSpinner:before {
+	content: " ";
+	width: 600px;
+	height: 600px;
+	box-sizing: border-box;
+	border-radius: 50%;
+	box-shadow: 0px 0px 121px #000;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -300px;
+	margin-left: -300px;
+	-webkit-transition: box-shadow 1s;
+	transition: box-shadow 1s;
+}
+
+.inTransition .gridBoxSpinner:before{
+	box-shadow: 0px 0px 121px #fff;
+}
+
+.gridBoxSpinner:after {
+	content: " ";
+	width: 600px;
+	height: 600px;
+	box-sizing: border-box;
+	border-radius: 50%;
+	box-shadow: 0px 0px 121px #000 inset;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -300px;
+	margin-left: -300px;
+	-webkit-transition: box-shadow 1s;
+	transition: box-shadow 1s;
+}
+
+.inTransition .gridBoxSpinner:after{
+	box-shadow: 0px 0px 121px #fff inset;
+}
+</style>
 </head>
 <body>
 	<div class="gridBoxContainer">Loading . . .</div>
@@ -14,23 +184,38 @@
 		var pImage = document.createElement("img");
 		pImage.style.display = "none";
 		pImage.setAttribute("id", "preloadedImage");
+		var pImageI = document.createElement("img");
+		pImageI.style.display = "none";
+		pImageI.setAttribute("id", "preloadedImageI");
 		var cssText = "";
+		var cssTextI = "";
 		if (window.location.protocol.indexOf("http") !== -1) {
 			pImage.src = "//cdn.kcak11.com/gridbox-animation/assets/images/the-k-circle.png";
+			pImageI.src = "//cdn.kcak11.com/gridbox-animation/assets/images/the-k-circle-i.png";
 			cssText = "\n.tile{background-image:url(\"//cdn.kcak11.com/gridbox-animation/assets/images/the-k-circle.png\");}"
+			cssTextI = "\n.tile{background-image:url(\"//cdn.kcak11.com/gridbox-animation/assets/images/the-k-circle-i.png\");}";
 		} else {
 			pImage.src = "assets/images/the-k-circle.png";
-			cssText = "\n.tile{background-image:url(\"assets/images/the-k-circle.png\");}"
+			pImageI.src = "assets/images/the-k-circle-i.png";
+			cssText = "\n.tile{background-image:url(\"assets/images/the-k-circle.png\");}";
+			cssTextI = "\n.tile{background-image:url(\"assets/images/the-k-circle-i.png\");}";
 		}
-		var dynamicStyle = document.createElement("style");
-		dynamicStyle.type = "text/css";
-		if (dynamicStyle.styleSheet) {
-			dynamicStyle.styleSheet.cssText = cssText;
-		} else {
-			dynamicStyle.appendChild(document.createTextNode(cssText));
+		function applyCSSRule(cssText) {
+			var existingStyleElem = document.querySelector("#_dyn_StyleGBOX");
+			existingStyleElem && existingStyleElem.parentNode.removeChild(existingStyleElem);
+			var dynamicStyle = document.createElement("style");
+			dynamicStyle.id = "_dyn_StyleGBOX";
+			dynamicStyle.type = "text/css";
+			if (dynamicStyle.styleSheet) {
+				dynamicStyle.styleSheet.cssText = cssText;
+			} else {
+				dynamicStyle.appendChild(document.createTextNode(cssText));
+			}
+			document.getElementsByTagName("head")[0].appendChild(dynamicStyle);
 		}
-		document.getElementsByTagName("head")[0].appendChild(dynamicStyle);
+		applyCSSRule(cssText);
 		document.getElementsByTagName("body")[0].appendChild(pImage);
+		document.getElementsByTagName("body")[0].appendChild(pImageI);
 	</script>
 	<script src="js/index.js"></script>
 </body>
