@@ -68,6 +68,7 @@
 
 	function play() {
 		var allTiles = document.querySelectorAll(".tile");
+		var css_i, css_default;
 		_r.sort(function() {
 			return Math.random() < 0.5 ? -1 : 1;
 		});
@@ -83,12 +84,16 @@
 								setTimeout(function() {
 									if (animCtr % 4 === 2) {
 										applyCSSRule(cssTextI);
-										cFrag.querySelector("#css_i") && document.querySelector("head").appendChild(cFrag.querySelector("#css_i"));
+										css_i = cFrag.querySelector("#css_i");
+										css_i.setAttribute("type","text/css");
+										css_i && document.querySelector("head").appendChild(css_i);
 										document.querySelector("#css_default") && cFrag.appendChild(document.querySelector("#css_default"));
 										effectsCtr = 0;
 									} else if (animCtr % 4 === 0) {
 										applyCSSRule(cssText);
-										cFrag.querySelector("#css_default") && document.querySelector("head").appendChild(cFrag.querySelector("#css_default"));
+										css_default = cFrag.querySelector("#css_default"); 
+										css_default.setAttribute("type","text/css");
+										css_default && document.querySelector("head").appendChild(css_default);
 										document.querySelector("#css_i") && cFrag.appendChild(document.querySelector("#css_i"));
 										effectsCtr = 0;
 									}
