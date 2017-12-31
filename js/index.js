@@ -85,14 +85,12 @@
 									if (animCtr % 4 === 2) {
 										applyCSSRule(cssTextI);
 										css_i = cFrag.querySelector("#css_i");
-										css_i.setAttribute("type","text/css");
 										css_i && document.querySelector("head").appendChild(css_i);
 										document.querySelector("#css_default") && cFrag.appendChild(document.querySelector("#css_default"));
 										effectsCtr = 0;
 									} else if (animCtr % 4 === 0) {
 										applyCSSRule(cssText);
 										css_default = cFrag.querySelector("#css_default"); 
-										css_default.setAttribute("type","text/css");
 										css_default && document.querySelector("head").appendChild(css_default);
 										document.querySelector("#css_i") && cFrag.appendChild(document.querySelector("#css_i"));
 										effectsCtr = 0;
