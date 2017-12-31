@@ -39,6 +39,7 @@ body {
     color: #fff;
     width: 522px;
     height: 522px;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     overflow: hidden;
     -webkit-transform: rotateY(0deg);
