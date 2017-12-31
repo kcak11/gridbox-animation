@@ -112,6 +112,37 @@
 		}
 		animCtr++;
 	}
+	var showLoadingMsg = function(container,msg){
+		if(!container || !msg || typeof msg !== "string"){
+			return;
+		}
+		if(!container.layoutDone){
+			var t=document.createDocumentFragment();
+			for(var i=0;i<msg.length;i++){
+				var s=document.createElement("span");
+				s.innerHTML=msg.charAt(i);
+				t.appendChild(s);
+			}
+			container && container.appendChild(t);
+		}
+		container.layoutDone="yes";
+		var elems=container.querySelectorAll("span");
+		for(var i=0;i<elems.length;i++){
+			(function(elem,len,index){
+				setTimeout(function(){
+					if(elem){
+						elem.classList.contains("anim")?elem.classList.remove("anim"):elem.classList.add("anim");
+					}
+					if(index === len-1){
+						setTimeout(function(){
+							showLoadingMsg(container,msg);
+						},200);
+					}
+				},index*56);
+			}(elems[i],elems.length,i));
+		}
+	};
+	showLoadingMsg(document.querySelector(".load_msg"),"Please wait, Loading . . .");
 	var init = function() {
 		if (window.location.protocol.indexOf("http") === -1 || (pImage.complete && pImageI.complete)) {
 			gridBoxSpinner.classList.add("gridBoxSpinner");
@@ -124,7 +155,9 @@
 			}, 25);
 		}
 	};
+	setTimeout(function(){
 	init();
+	}, 4000);
 	document.oncontextmenu = function(e) {
 		if (e && e.preventDefault) {
 			e.preventDefault();

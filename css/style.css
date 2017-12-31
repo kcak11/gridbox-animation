@@ -68,6 +68,10 @@ body {
     margin-left: -98px;
 }
 
+.gridBoxContainer .load_msg span.anim {
+	font-weight: bold;
+}
+
 .tile {
     background-repeat: no-repeat;
     width: 33px;
