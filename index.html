@@ -45,6 +45,9 @@
       left: 50%;
       margin-top: -300px;
       margin-left: -300px;
+    }
+    
+    body:not(.initializing) .gridBoxSpinner {
       -webkit-transition: border-top 1s, border-bottom 1s, -webkit-box-shadow 1s;
       transition: border-top 1s, border-bottom 1s, box-shadow 1s;
     }
@@ -142,6 +145,9 @@
       left: 50%;
       margin-top: -300px;
       margin-left: -300px;
+    }
+    
+    body:not(.initializing) .gridBoxSpinner {
       -webkit-transition: border-top 1s, border-bottom 1s, -webkit-box-shadow 1s;
       transition: border-top 1s, border-bottom 1s, box-shadow 1s;
     }
@@ -203,7 +209,7 @@
   </style>
 </head>
 
-<body>
+<body class="initializing">
   <div class="gridBoxContainer">
     <div class="load_msg"></div>
   </div>
