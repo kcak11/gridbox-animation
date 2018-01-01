@@ -177,9 +177,13 @@
       }, 25);
     }
   };
-  setTimeout(function() {
+  if (window.location.search && window.location.search.indexOf("noanim") !== -1) {
     init();
-  }, 4000);
+  } else {
+    setTimeout(function() {
+      init();
+    }, 4000);
+  }
   document.oncontextmenu = function(e) {
     if (e && e.preventDefault) {
       e.preventDefault();
