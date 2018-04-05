@@ -7,6 +7,7 @@
 	position: relative;
 	left: 0px;
 	top: 0px;
+	height: 114px;
 }
 
 .logoFrame {
@@ -33,12 +34,48 @@
 	top: -80px;
 	left: -80px;
 }
+
+.textBoxContainer {
+	position: absolute;
+	left: 135px;
+	top: 50%;
+	font-family: Verdana;
+}
 </style>
 </head>
 <body>
 	<div class="outerContainer">
 		<iframe src="https://cdn.kcak11.com/gridbox-animation/?noanim=true" class="logoFrame"></iframe>
 		<div class="overlapper"></div>
+		<div class="textBoxContainer"></div>
 	</div>
+	<script type="text/javascript">
+		function addLineItem(text, css) {
+			var lineItem = document.createElement("div");
+			lineItem.innerHTML = decodeURIComponent(text);
+			if (css) {
+				for ( var key in css) {
+					lineItem.style[key] = css[key];
+				}
+			}
+			document.querySelector(".textBoxContainer").appendChild(lineItem);
+		}
+		var querySearch = window.location.search;
+		var params = querySearch.split("?");
+		var paramKeyValue;
+		if (params[1]) {
+			params = params[1].split("&");
+		}
+		for (var i = 0; i < params.length; i++) {
+			paramKeyValue = params[i].split("=");
+			if (paramKeyValue[0].indexOf("line") === 0) {
+				addLineItem(paramKeyValue[1], {
+					"padding-bottom" : "5px"
+				});
+			}
+		}
+		var tbcHeight = document.querySelector(".textBoxContainer").offsetHeight;
+		document.querySelector(".textBoxContainer").style.marginTop = "-" + (tbcHeight / 2) + "px";
+	</script>
 </body>
 </html>
