@@ -2,219 +2,221 @@
 <html lang="en">
 
 <head>
-  <link href='//www.kcak11.com/favicon.ico' rel='icon' type='image/x-icon' />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta charset="UTF-8">
-  <title>GridBox Animation</title>
-  <link rel="stylesheet" href="css/style.css">
-  <style type="text/css" id="css_i">
-    body {
-      background-color: rgb(165, 95, 43);
-    }
+   <link href='//www.kcak11.com/favicon.ico' rel='icon' type='image/x-icon' />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta charset="UTF-8">
+   <title>GridBox Animation</title>
+   <link rel="stylesheet" href="css/style.css">
+   <style type="text/css" id="css_i">
+      body {
+         background-color: rgb(165, 95, 43);
+      }
 
-    body.bg1 {
-      background-color: rgb(211, 125, 62);
-    }
+      body.bg1 {
+         background-color: rgb(211, 125, 62);
+      }
 
-    body.bg1.bg2 {
-      background-color: rgb(232, 110, 21);
-    }
+      body.bg1.bg2 {
+         background-color: rgb(232, 110, 21);
+      }
 
-    body.bg1.bg2.bg3 {
-      background-color: rgb(250, 179, 127);
-    }
+      body.bg1.bg2.bg3 {
+         background-color: rgb(250, 179, 127);
+      }
 
-    body.inTransition {
-      background-color: rgb(90, 160, 212);
-    }
+      body.inTransition {
+         background-color: rgb(90, 160, 212);
+      }
 
-    .gridBoxSpinner {
-      background-color: transparent;
-      width: 600px;
-      height: 600px;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      border-top: 11px solid #000;
-      border-bottom: 11px solid #000;
-      -webkit-border-radius: 50%;
-      border-radius: 50%;
-      -webkit-box-shadow: 0px 0px 121px #000;
-      box-shadow: 0px 0px 121px #000;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-top: -300px;
-      margin-left: -300px;
-    }
+      .gridBoxSpinner {
+         background-color: transparent;
+         width: 600px;
+         height: 600px;
+         -webkit-box-sizing: border-box;
+         box-sizing: border-box;
+         border-top: 11px solid #000;
+         border-bottom: 11px solid #000;
+         -webkit-border-radius: 50%;
+         border-radius: 50%;
+         -webkit-box-shadow: 0px 0px 121px #000;
+         box-shadow: 0px 0px 121px #000;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         margin-top: -300px;
+         margin-left: -300px;
+      }
 
-    body:not(.initializing) .gridBoxSpinner {
-      -webkit-transition: border-top 1s, border-bottom 1s, -webkit-box-shadow 1s;
-      transition: border-top 1s, border-bottom 1s, box-shadow 1s;
-    }
+      body:not(.initializing) .gridBoxSpinner {
+         -webkit-transition: border-top 1s, border-bottom 1s, -webkit-box-shadow 1s;
+         transition: border-top 1s, border-bottom 1s, box-shadow 1s;
+      }
 
-    .inTransition .gridBoxSpinner {
-      border-top: 11px solid #fff;
-      border-bottom: 11px solid #fff;
-      -webkit-box-shadow: 0px 0px 121px #fff;
-      box-shadow: 0px 0px 121px #fff;
-    }
+      .inTransition .gridBoxSpinner {
+         border-top: 11px solid #fff;
+         border-bottom: 11px solid #fff;
+         -webkit-box-shadow: 0px 0px 121px #fff;
+         box-shadow: 0px 0px 121px #fff;
+      }
 
-    .gridBoxSpinner:before {
-      content: " ";
-      width: 600px;
-      height: 600px;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      -webkit-border-radius: 50%;
-      border-radius: 50%;
-      -webkit-box-shadow: 0px 0px 121px #000;
-      box-shadow: 0px 0px 121px #000;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-top: -300px;
-      margin-left: -300px;
-      -webkit-transition: -webkit-box-shadow 1s;
-      transition: box-shadow 1s;
-    }
+      .gridBoxSpinner:before {
+         content: " ";
+         width: 600px;
+         height: 600px;
+         -webkit-box-sizing: border-box;
+         box-sizing: border-box;
+         -webkit-border-radius: 50%;
+         border-radius: 50%;
+         -webkit-box-shadow: 0px 0px 121px #000;
+         box-shadow: 0px 0px 121px #000;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         margin-top: -300px;
+         margin-left: -300px;
+         -webkit-transition: -webkit-box-shadow 1s;
+         transition: box-shadow 1s;
+      }
 
-    .inTransition .gridBoxSpinner:before {
-      -webkit-box-shadow: 0px 0px 121px #fff;
-      box-shadow: 0px 0px 121px #fff;
-    }
+      .inTransition .gridBoxSpinner:before {
+         -webkit-box-shadow: 0px 0px 121px #fff;
+         box-shadow: 0px 0px 121px #fff;
+      }
 
-    .gridBoxSpinner:after {
-      content: " ";
-      width: 600px;
-      height: 600px;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      -webkit-border-radius: 50%;
-      border-radius: 50%;
-      -webkit-box-shadow: 0px 0px 121px #000 inset;
-      box-shadow: 0px 0px 121px #000 inset;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-top: -300px;
-      margin-left: -300px;
-      -webkit-transition: -webkit-box-shadow 1s;
-      transition: box-shadow 1s;
-    }
+      .gridBoxSpinner:after {
+         content: " ";
+         width: 600px;
+         height: 600px;
+         -webkit-box-sizing: border-box;
+         box-sizing: border-box;
+         -webkit-border-radius: 50%;
+         border-radius: 50%;
+         -webkit-box-shadow: 0px 0px 121px #000 inset;
+         box-shadow: 0px 0px 121px #000 inset;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         margin-top: -300px;
+         margin-left: -300px;
+         -webkit-transition: -webkit-box-shadow 1s;
+         transition: box-shadow 1s;
+      }
 
-    .inTransition .gridBoxSpinner:after {
-      -webkit-box-shadow: 0px 0px 121px #fff inset;
-      box-shadow: 0px 0px 121px #fff inset;
-    }
-  </style>
-  <style type="text/css" id="css_default">
-    body {
-      background-color: rgb(90, 160, 212);
-    }
+      .inTransition .gridBoxSpinner:after {
+         -webkit-box-shadow: 0px 0px 121px #fff inset;
+         box-shadow: 0px 0px 121px #fff inset;
+      }
+   </style>
+   <style type="text/css" id="css_default">
+      body {
+         background-color: rgb(90, 160, 212);
+      }
 
-    body.bg1 {
-      background-color: rgb(44, 130, 193);
-    }
+      body.bg1 {
+         background-color: rgb(44, 130, 193);
+      }
 
-    body.bg1.bg2 {
-      background-color: rgb(23, 145, 234);
-    }
+      body.bg1.bg2 {
+         background-color: rgb(23, 145, 234);
+      }
 
-    body.bg1.bg2.bg3 {
-      background-color: rgb(5, 76, 128);
-    }
+      body.bg1.bg2.bg3 {
+         background-color: rgb(5, 76, 128);
+      }
 
-    body.inTransition {
-      background-color: rgb(165, 95, 43);
-    }
+      body.inTransition {
+         background-color: rgb(165, 95, 43);
+      }
 
-    .gridBoxSpinner {
-      background-color: transparent;
-      width: 600px;
-      height: 600px;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      border-top: 11px solid #fff;
-      border-bottom: 11px solid #fff;
-      -webkit-border-radius: 50%;
-      border-radius: 50%;
-      -webkit-box-shadow: 0px 0px 121px #fff;
-      box-shadow: 0px 0px 121px #fff;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-top: -300px;
-      margin-left: -300px;
-    }
+      .gridBoxSpinner {
+         background-color: transparent;
+         width: 600px;
+         height: 600px;
+         -webkit-box-sizing: border-box;
+         box-sizing: border-box;
+         border-top: 11px solid #fff;
+         border-bottom: 11px solid #fff;
+         -webkit-border-radius: 50%;
+         border-radius: 50%;
+         -webkit-box-shadow: 0px 0px 121px #fff;
+         box-shadow: 0px 0px 121px #fff;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         margin-top: -300px;
+         margin-left: -300px;
+      }
 
-    body:not(.initializing) .gridBoxSpinner {
-      -webkit-transition: border-top 1s, border-bottom 1s, -webkit-box-shadow 1s;
-      transition: border-top 1s, border-bottom 1s, box-shadow 1s;
-    }
+      body:not(.initializing) .gridBoxSpinner {
+         -webkit-transition: border-top 1s, border-bottom 1s, -webkit-box-shadow 1s;
+         transition: border-top 1s, border-bottom 1s, box-shadow 1s;
+      }
 
-    .inTransition .gridBoxSpinner {
-      border-top: 11px solid #000;
-      border-bottom: 11px solid #000;
-      -webkit-box-shadow: 0px 0px 121px #000;
-      box-shadow: 0px 0px 121px #000;
-    }
+      .inTransition .gridBoxSpinner {
+         border-top: 11px solid #000;
+         border-bottom: 11px solid #000;
+         -webkit-box-shadow: 0px 0px 121px #000;
+         box-shadow: 0px 0px 121px #000;
+      }
 
-    .gridBoxSpinner:before {
-      content: " ";
-      width: 600px;
-      height: 600px;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      -webkit-border-radius: 50%;
-      border-radius: 50%;
-      -webkit-box-shadow: 0px 0px 121px #fff;
-      box-shadow: 0px 0px 121px #fff;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-top: -300px;
-      margin-left: -300px;
-      -webkit-transition: -webkit-box-shadow 1s;
-      transition: box-shadow 1s;
-    }
+      .gridBoxSpinner:before {
+         content: " ";
+         width: 600px;
+         height: 600px;
+         -webkit-box-sizing: border-box;
+         box-sizing: border-box;
+         -webkit-border-radius: 50%;
+         border-radius: 50%;
+         -webkit-box-shadow: 0px 0px 121px #fff;
+         box-shadow: 0px 0px 121px #fff;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         margin-top: -300px;
+         margin-left: -300px;
+         -webkit-transition: -webkit-box-shadow 1s;
+         transition: box-shadow 1s;
+      }
 
-    .inTransition .gridBoxSpinner:before {
-      -webkit-box-shadow: 0px 0px 121px #000;
-      box-shadow: 0px 0px 121px #000;
-    }
+      .inTransition .gridBoxSpinner:before {
+         -webkit-box-shadow: 0px 0px 121px #000;
+         box-shadow: 0px 0px 121px #000;
+      }
 
-    .gridBoxSpinner:after {
-      content: " ";
-      width: 600px;
-      height: 600px;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      -webkit-border-radius: 50%;
-      border-radius: 50%;
-      -webkit-box-shadow: 0px 0px 121px #fff inset;
-      box-shadow: 0px 0px 121px #fff inset;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-top: -300px;
-      margin-left: -300px;
-      -webkit-transition: -webkit-box-shadow 1s;
-      transition: box-shadow 1s;
-    }
+      .gridBoxSpinner:after {
+         content: " ";
+         width: 600px;
+         height: 600px;
+         -webkit-box-sizing: border-box;
+         box-sizing: border-box;
+         -webkit-border-radius: 50%;
+         border-radius: 50%;
+         -webkit-box-shadow: 0px 0px 121px #fff inset;
+         box-shadow: 0px 0px 121px #fff inset;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         margin-top: -300px;
+         margin-left: -300px;
+         -webkit-transition: -webkit-box-shadow 1s;
+         transition: box-shadow 1s;
+      }
 
-    .inTransition .gridBoxSpinner:after {
-      -webkit-box-shadow: 0px 0px 121px #000 inset;
-      box-shadow: 0px 0px 121px #000 inset;
-    }
-  </style>
+      .inTransition .gridBoxSpinner:after {
+         -webkit-box-shadow: 0px 0px 121px #000 inset;
+         box-shadow: 0px 0px 121px #000 inset;
+      }
+   </style>
 </head>
 
 <body class="initializing">
-  <div class="gridBoxContainer">
-    <div class="load_msg"></div>
-  </div>
-  <div class="_gboxS"></div>
-  <script src="js/index.js"></script>
+   <div class="mainContainer">
+      <div class="gridBoxContainer">
+         <div class="load_msg"></div>
+      </div>
+      <div class="_gboxS"></div>
+   </div>
+   <script src="js/index.js"></script>
 </body>
 
 </html>
