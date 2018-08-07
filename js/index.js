@@ -183,7 +183,7 @@
         var overlayColor = pageQueryParams["overlaycolor"];
         var overlayOpacity = pageQueryParams["overlayopacity"] || 0.5;
         if (overlayColor) {
-            var overlayCSSDef = "body:after{content:' ';position:absolute;top:0;right:0;bottom:0;left:0;background-color:" + overlayColor + ";opacity:" + overlayOpacity + ";}";
+            var overlayCSSDef = "body:after{content:' ';display:block;position:absolute;top:0;right:0;bottom:0;left:0;background-color:" + overlayColor + ";opacity:" + overlayOpacity + ";}";
             writeCSSDef(overlayCSSDef);
         }
     };
