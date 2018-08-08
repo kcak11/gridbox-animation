@@ -1,3 +1,4 @@
+/* jshint laxcomma:true, loopfunc: true */
 /*-- vTag:5NzcxMDk2MjE2NDYwMzkzMC4xNDk2MDgxMDYyNjY2Mzc5MC45MzE5NDI1NTQ3NzM4 --*/
 (function() {
     var pImage = document.createElement("img");
@@ -70,24 +71,40 @@
         for (var i = 0; i < allTiles.length; i++) {
             (function(e, len, idx, i) {
                 setTimeout(function() {
-                    e.classList.contains("visible") ? e.classList.remove("visible") : e.classList.add("visible");
+                    if (e.classList.contains("visible")) {
+                        e.classList.remove("visible");
+                    } else {
+                        e.classList.add("visible");
+                    }
                     if (idx === len - 1) {
                         setTimeout(function() {
-                            gridBoxContainer.classList.contains("animate") ? gridBoxContainer.classList.remove("animate") : gridBoxContainer.classList.add("animate");
+                            if (gridBoxContainer.classList.contains("animate")) {
+                                gridBoxContainer.classList.remove("animate");
+                            } else {
+                                gridBoxContainer.classList.add("animate");
+                            }
                             if (animCtr > 0 && (animCtr % 4 === 2 || animCtr % 4 === 0)) {
                                 document.querySelector("body").className = "inTransition";
                                 setTimeout(function() {
                                     if (animCtr % 4 === 2) {
                                         applyCSSRule(cssTextI);
                                         css_i = cFrag.querySelector("#css_i");
-                                        css_i && document.querySelector("head").appendChild(css_i);
-                                        document.querySelector("#css_default") && cFrag.appendChild(document.querySelector("#css_default"));
+                                        if (css_i) {
+                                            document.querySelector("head").appendChild(css_i);
+                                        }
+                                        if (document.querySelector("#css_default")) {
+                                            cFrag.appendChild(document.querySelector("#css_default"));
+                                        }
                                         effectsCtr = 0;
                                     } else if (animCtr % 4 === 0) {
                                         applyCSSRule(cssText);
                                         css_default = cFrag.querySelector("#css_default");
-                                        css_default && document.querySelector("head").appendChild(css_default);
-                                        document.querySelector("#css_i") && cFrag.appendChild(document.querySelector("#css_i"));
+                                        if (css_default) {
+                                            document.querySelector("head").appendChild(css_default);
+                                        }
+                                        if (document.querySelector("#css_i")) {
+                                            cFrag.appendChild(document.querySelector("#css_i"));
+                                        }
                                         effectsCtr = 0;
                                     }
                                     document.querySelector("body").className = "";
@@ -120,7 +137,7 @@
     }
     )();
     var showLoadingAnimation = true;
-    if (pageQueryParams["noanim"]) {
+    if (pageQueryParams.noanim) {
         showLoadingAnimation = false;
     }
     var showLoadingMsg = function(container, msg) {
@@ -134,15 +151,21 @@
                 s.innerHTML = msg.charAt(i);
                 t.appendChild(s);
             }
-            container && container.appendChild(t);
+            if (container) {
+                container.appendChild(t);
+            }
         }
         container.layoutDone = "yes";
         var elems = container.querySelectorAll("span");
-        for (var i = 0; i < elems.length; i++) {
+        for (var ei = 0; ei < elems.length; ei++) {
             (function(elem, len, index) {
                 setTimeout(function() {
                     if (elem) {
-                        elem.classList.contains("anim") ? elem.classList.remove("anim") : elem.classList.add("anim");
+                        if (elem.classList.contains("anim")) {
+                            elem.classList.remove("anim");
+                        } else {
+                            elem.classList.add("anim");
+                        }
                     }
                     if (index === len - 1) {
                         setTimeout(function() {
@@ -151,7 +174,7 @@
                     }
                 }, index * 56);
             }
-            )(elems[i], elems.length, i);
+            )(elems[ei], elems.length, ei);
         }
     };
     if (showLoadingAnimation) {
@@ -171,7 +194,7 @@
     };
     var adjustZoom = function() {
         var zoomVal, containEr;
-        zoomVal = pageQueryParams["zoom"];
+        zoomVal = pageQueryParams.zoom;
         if (zoomVal) {
             var scaleCSS = ".mainContainer{\n-webkit-transform:scale(#W,#H);\n-moz-transform:scale(#W,#H);\n-ms-transform:scale(#W,#H);\ntransform:scale(#W,#H);\n}";
             scaleCSS = scaleCSS.split("#W").join(zoomVal).split("#H").join(zoomVal);
@@ -180,8 +203,8 @@
     };
     adjustZoom();
     var applyOverlay = function() {
-        var overlayColor = pageQueryParams["overlaycolor"];
-        var overlayOpacity = pageQueryParams["overlayopacity"] || 0.5;
+        var overlayColor = pageQueryParams.overlaycolor;
+        var overlayOpacity = pageQueryParams.overlayopacity || 0.5;
         if (overlayColor) {
             var overlayCSSDef = "body:after{content:' ';display:block;position:absolute;top:0;right:0;bottom:0;left:0;background-color:" + overlayColor + ";opacity:" + overlayOpacity + ";}";
             writeCSSDef(overlayCSSDef);
