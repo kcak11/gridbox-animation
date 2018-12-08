@@ -16,6 +16,9 @@
       window.onresize = function() {
          _adjustPosition();
       };
+      document.addEventListener("contextmenu", function(e) {
+         e.preventDefault();
+      }, false);
    </script>
 </body>
 
